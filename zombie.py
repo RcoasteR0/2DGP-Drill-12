@@ -157,9 +157,8 @@ class Zombie:
         a4 = Action('소년한테 접근', self.move_to_boy)
         chase_boy = Sequence('소년을 추적', c1, c2, a4)
 
-        c3 = Condition('소년이 근처에 있는가?', self.is_boy_nearby, 7)
         a6 = Action('소년한테 멀어짐', self.runaway_to_boy)
-        runaway_boy = Sequence('소년으로부터 도주', c3, a6)
+        runaway_boy = Sequence('소년으로부터 도주', c1, a6)
 
         root = chase_runaway_patrol = Selector('추적, 도주, 배회', chase_boy, runaway_boy, wander)
 
